@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to top left, #fce4ec, #e1bee7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+}
+
+.flower {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: transform 1s ease;
+}
+
+.petal {
+  --i: 0;
+  position: absolute;
+  width: 60px;
+  height: 90px;
+  background: radial-gradient(circle, #9c27b0, #6a1b9a);
+  border-radius: 50% 50% 0 0;
+  top: 30px;
+  left: 30px;
+  transform: rotate(calc(var(--i) * 45deg)) translateY(-20px) scale(0.8);
+  transform-origin: bottom center;
+  transition: transform 1s ease;
+}
+
+.center {
+  display: none;
+}
+
+.message {
+  margin-top: 25px;
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.flower.bloom {
+  transform: rotate(360deg);
+}
+
+.flower.bloom .petal {
+  transform: rotate(calc(var(--i) * 45deg)) translateY(-80px) scale(1);
+}
+
+.flower.bloom + .message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#music-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+@media (max-width: 600px) {
+  #music-toggle {
+    font-size: 1.8rem;
+    top: 15px;
+    right: 15px;
+  }
+}
